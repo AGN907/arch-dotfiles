@@ -1,0 +1,54 @@
+@import './colors.css';
+
+
+window {
+  /* background-color: rgba(12, 12, 12, 0.2); */
+  background-color: rgba(24, 27, 32, 0.2);
+  font-family: IosevkaTerm Nerd Font;
+  font-size: 24px;
+  color: #000;
+}
+
+button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  background-color: transparent;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s ease-in;
+  box-shadow: 0 0 10px 2px transparent;
+  margin: 10px;
+}
+
+button:focus {
+  background-size: 30%;
+  background-color: @primary;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, .4);
+  transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
+}
+
+
+#logout {
+  margin: 10px;
+  border-radius: 20px;
+  background-image: image(url("/usr/share/wlogout/assets/logout.svg"));
+}
+
+#suspend {
+  margin: 10px;
+  border-radius: 20px;
+  background-image: image(url("/usr/share/wlogout/assets/suspend.svg"));
+
+}
+
+#shutdown {
+  margin: 10px;
+  border-radius: 20px;
+  background-image: image(url("/usr/share/wlogout/assets/shutdown.svg"));
+}
+
+#reboot {
+  margin: 10px;
+  border-radius: 20px;
+  background-image: image(url("/usr/share/wlogout/assets/reboot.svg"));
+}

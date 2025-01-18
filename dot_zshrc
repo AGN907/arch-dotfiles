@@ -1,0 +1,89 @@
+eval "$(starship init zsh)"
+
+# Set the directory where zinit is installed
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+
+# Download zinit if it is not already installed
+ if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+ fi
+
+
+# Source zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Add in snippets
+ zinit snippet OMZP::git
+ zinit snippet OMZP::sudo
+ zinit snippet OMZP::archlinux
+ zinit snippet OMZP::command-not-found
+ zinit snippet OMZP::gradle
+ zinit snippet OMZP::docker-compose
+
+
+
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+# Add in zsh plugins
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+zinit ice as"program" pick"bin/git-dsf"
+zinit light zdharma-continuum/zsh-diff-so-fancy
+
+
+# History
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+HISTFILE=~/.zsh_history
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' 
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+
+# Shell intergrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
+
+ # Yazi shell wrapper
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+    exec tmux new-session -A -s ${USER} >/dev/null 2>&1
+fi

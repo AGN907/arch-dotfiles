@@ -1,0 +1,7 @@
+result=$( pgrep greenclip > /dev/null && echo running )
+
+if [[ "result" != 'running' ]]; then
+  greenclip daemon &
+fi
+
+rofi -modi "Clipboard:greenclip print" -show Clipboard -run-command '{cmd}'  -config $HOME/.config/i3/rofi/config/clipboard.rasi

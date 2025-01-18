@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+rofi \
+	-show run \
+	-scroll-method 0 \
+	-terminal kitty \
+	-theme "$HOME"/.config/i3/rofi/config/runner.rasi
+  -kb-cancel Super_L 

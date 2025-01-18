@@ -1,0 +1,319 @@
+@import 'colors.css';
+
+/* ================================ */
+/*            Common CSS            */
+/* ================================ */
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  padding: 0;
+  border-radius: 12px;
+  min-height: 0;
+  margin: 0px;
+  border: none;
+  text-shadow: none;
+  transition: none;
+  box-shadow: none;
+}
+
+window {
+  padding: 12px;
+}
+
+/* the whole window */
+window#waybar {
+  background-color: rgba(30, 35, 38, 0.6);
+  border-radius: 0;
+  opacity: 1;
+  color: #fff4d2;
+  padding: 12px;
+}
+
+window#waybar.hidden {
+  opacity: 1;
+}
+
+
+/* ================================ */
+/*       workspaces module          */
+/* ================================ */
+#workspaces {
+  border-radius: 12px;
+  background: #1E2326;
+  border: 3px solid #1E2326;
+  margin: 8px;
+}
+
+#workspaces button {
+  color: #A7C080;
+  border: 0px solid #1E2326;
+  border-radius: 12px;
+  padding: 0 4px;
+  margin: 0px 0px;
+  min-width: 25px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+#workspaces button:hover {
+  color: #1E2326;
+  background: #2e383c;
+  min-width: 25px;
+}
+
+#workspaces button.visible {
+  color: @on_primary_fixed_dim;
+  background-color: @primary_fixed_dim;
+  padding: 0 4px;
+  margin: 0px 3px;
+  min-width: 25px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+#workspaces button.visible:hover {
+  color: @on_primary_fixed_dim;
+  background-color: @primary_fixed_dim;
+  padding: 0 4px;
+  margin: 0px 3px;
+  min-width: 25px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+#workspaces button.active {
+  color: @on_primary;
+  background-color: @primary;
+  padding: 0 4px;
+  margin: 0px 0px;
+  min-width: 25px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+#workspaces button.active:hover {
+  color: @on_primary;
+  border: 0px solid #1E2326;
+  background-color: @primary;
+  padding: 0 4px;
+  margin: 0px 0px;
+  min-width: 25px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+#workspaces button.urgent {
+  color: #1E2326;
+  border: 0px solid #1E2326;
+  background-color: #e67e80;
+  padding: 0 4px;
+  margin: 0px 3px;
+  min-width: 25px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* ================================ */
+/*            window                 */
+/* ================================ */
+
+#window {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: @secondary;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  border-radius: 12px;
+  margin: 8px 8px 8px 0px;
+}
+
+#window {
+  border-radius: 12px;
+}
+
+
+/* ================================ */
+/*            tray                 */
+/* ================================ */
+
+#tray {
+  padding: 0 6px;
+  background: #1e2326;
+}
+
+/* ================================ */
+/*            disk                 */
+/* ================================ */
+
+#disk {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #e67e80;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  border-radius: 12px;
+  margin: 8px 8px 8px 0px;
+}
+
+/* ================================ */
+/*            cpu                  */
+/* ================================ */
+#cpu {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #e69875;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  margin: 8px 8px 8px 0px;
+}
+
+
+/* ================================ */
+/*            temp                  */
+/* ================================ */
+#temperature {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #dbbc7f;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  margin: 8px 8px 8px 0px;
+}
+
+#temperature.critical {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #cc241d;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+}
+
+/* ================================ */
+/*            backlight             */
+/* ================================ */
+#backlight {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #DBBc7F;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  margin: 8px;
+  margin: 8px 8px 8px 0px;
+}
+
+/* ================================ */
+/*            memory                */
+/* ================================ */
+#memory {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #d0a2cc;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  margin: 8px;
+  margin: 8px 8px 8px 0px;
+}
+
+/* ================================ */
+/*         pulseaudio               */
+/* ================================ */
+#pulseaudio {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #A7C080;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  margin: 8px 8px 8px 0px;
+}
+
+#pulseaudio.muted {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #A7C080;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+}
+
+/* ================================ */
+/*            battery               */
+/* ================================ */
+#battery {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #83c092;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  margin: 8px 8px 8px 0px;
+}
+
+#battery.critical {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #83c092;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+}
+
+#battery.warning {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: #83c092;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+}
+
+/* ================================ */
+/*            clock                 */
+/* ================================ */
+#clock {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  font-weight: 400;
+  color: @primary;
+  background: #1e2326;
+  padding-right: 4px;
+  border: 3px solid #1E2326;
+  border-radius: 12px;
+  margin: 8px 8px 8px 0px;
+}
+
+/* ================================ */
+/*            Language                 */
+/* ================================ */
+#language {
+  font-family: JetBrainsMono Nerd Font Propo;
+  background: #1e2326;
+  color: #bae6fd;
+  padding-right: 10px;
+  border-radius: 12px;
+  margin: 8px 8px 8px 0px;
+}

@@ -1,0 +1,75 @@
+. "$HOME/.cargo/env"
+
+# nvm
+lazy_load_nvm() {
+  unset -f node nvm
+    export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+node() {
+  lazy_load_nvm
+  node $@
+}
+
+nvm() {
+  lazy_load_nvm
+  node $@
+}
+
+
+export PATH=$PATH:$HOME/.local/bin
+
+export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+export GPG_TTY=$(tty)
+
+# Android Home 
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_STUDIO_PATH=$HOME/.local/share/android-studio
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Java
+export JAVA_HOME="/home/agn/.local/bin/android-studio/jbr"
+export PATH=$PATH:$JAVA_HOME/bin
+
+# Rust
+export CARGO_HOME="$HOME/.cargo"
+export PATH=$PATH:$CARGO_HOME/bin
+
+export EDITOR='nvim'
+
+
+# Aliases
+alias vim='lvim'
+alias vi='vim'
+alias nv='vim'
+alias pn='pnpm'
+alias ls='eza'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+alias cat='bat'
+alias a='php artisan'
+alias update="sudo pacman -Syu"
+
+# Cleanup orphaned packages
+alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
+
+# Get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# Recent installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"

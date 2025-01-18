@@ -1,0 +1,78 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+nnoremap <SPACE> <Nop>
+let mapleader=' '
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Ignore case when searching
+set ignorecase
+
+" Case sensitive when searching with at least one uppcase letter
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" Do incremental searching.
+set incsearch
+
+" copy and paste from system clipboard
+set clipboard=unnamed
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+" Easymotion
+Plug 'easymotion/vim-easymotion'
+" Surround
+Plug 'tpope/vim-surround'
+
+
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+
+" yank/put copy/paste mappings
+nnoremap Y y$
+nnoremap pp :put<CR>
+nnoremap PP :.-1put<CR>
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+:map <leader>d <Action>(ShowErrorDescription)
+:map ]d <Action>(GotoNextError)
+:map [d <Action>(GotoPreviousError)
+
+:map g<leader> <Action>(SearchEverywhere)
+:map go <Action>(RecentFiles)
+:map gR <Action>(GotoDeclaration)
+:map gf <Action>(GotoFile)
+:map gI <Action>(GotoImplementation)
+:map gg <Action>(FindInPath)
+:map gS <Action>(GotoSymbol)
+
+:map <leader>d <Action>(ShowContextActions)
+
+:map <leader>lf <Action>(ReformatCode)
+":map <leader>lf <Action>(io.gitlab.arturbosch.detekt.idea.action.AutoCorrect)
+:map <leader>lr <Action>(RenameElement)
+:map <leader>lk <Action>(ShowHoverInfo)
+:map <leader>lt <Action>(ExpressionTypeInfo)
+:map <leader>lc <Action>(ShowIntentionActions)set clipboard^=ideaput

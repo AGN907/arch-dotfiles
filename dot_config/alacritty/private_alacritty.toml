@@ -1,0 +1,82 @@
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[terminal.shell]
+program = "/bin/zsh"
+
+[window]
+padding = {x = 5, y = 5}
+opacity = 0.9
+blur = true
+startup_mode = "Windowed"
+dynamic_title = true
+class = { instance = "Alacritty", general = "Alacritty" }
+decorations_theme_variant = "None"
+
+
+[font]
+size = 10.0
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+
+
+[selection]
+save_to_clipboard = true
+# BEGIN WAL
+[colors.primary]
+background = '#191e25'
+foreground = '#d1dbe0'
+
+[colors.cursor]
+text   = '#191e25' # Apply background color to color of text inside cursor
+cursor = '#d1dbe0' # Apply foreground color to color of cursor
+
+[colors.vi_mode_cursor]
+text    = '#191e25' # Same as above
+cursor  = '#d1dbe0'
+
+[colors.search.matches]
+foreground = '#191e25' # Same as above
+background = '#d1dbe0' # Apply bright/white color to bg color of matching search
+
+[colors.search.focused_match]
+foreground = 'CellBackground'
+background = 'CellForeground'
+
+[colors.line_indicator]
+foreground = 'None'
+background = 'None'
+
+[colors.footer_bar]
+foreground = '#92999c'
+background = '#d1dbe0'
+
+[colors.selection]
+text       = 'CellBackground'
+background = 'CellForeground'
+
+[colors.normal]
+black   = '#191e25'
+red     = '#AA758A'
+green   = '#6F90A7'
+yellow  = '#7DA7C2'
+blue    = '#91A8B6'
+magenta = '#C6C0B5'
+cyan    = '#9FB8C6'
+white   = '#d1dbe0'
+
+[colors.bright]
+black   = '#92999c'
+red     = '#AA758A'
+green   = '#6F90A7'
+yellow  = '#7DA7C2'
+blue    = '#91A8B6'
+magenta = '#C6C0B5'
+cyan    = '#9FB8C6'
+white   = '#d1dbe0'
+
+[terminal]
+# END WAL
