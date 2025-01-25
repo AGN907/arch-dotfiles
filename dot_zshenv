@@ -52,7 +52,7 @@ export EDITOR='nvim'
 
 
 # Aliases
-alias vim='lvim'
+alias vim='nvim'
 alias vi='vim'
 alias nv='vim'
 alias pn='pnpm'
@@ -64,6 +64,7 @@ alias lt='ls --tree'
 alias cat='bat'
 alias a='php artisan'
 alias update="sudo pacman -Syu"
+alias edit="chezmoi edit"
 
 # Cleanup orphaned packages
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
