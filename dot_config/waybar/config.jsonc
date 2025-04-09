@@ -1,151 +1,91 @@
-{
-  "layer": "top",
-  "height": 40,
-  "spacing": 0,
-  "margin-top": 0,
-  "margin-right": 0,
-  "margin-left": 0,
-  "modules-left": [
-    //"sway/workspaces",
-    //"sway/window",
-    "hyprland/workspaces",
-    "hyprland/window"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "disk",
-    "memory",
-    "cpu",
-    //"temperature",
-    //"backlight",
-    "pulseaudio",
-    "hyprland/language"
-    //"battery"
-  ],
-  // Modules configuration
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "active-only": false,
-    "all-outputs": true,
-    "warp-on-scroll": false,
-    "format": "{icon}",
-    "format-icons": {
-      "1": "<span >1</span>",
-      "2": "<span >2</span>",
-      "3": "<span >3</span>",
-      "4": "<span >4</span>",
-      "5": "<span >5</span>"
-    }
-  },
-  "sway/window": {
-    "format": "<span> 󰣆 </span> {app_id}",
-    "separate-outputs": true,
-    "icon": false
-  },
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "active-only": false,
-    "all-outputs": true,
-    "warp-on-scroll": true,
-    "format": "{icon}",
-    "persistent-workspaces": {
-      "*": 5
+[
+  {
+    "backlight": {
+      "format": "<span color='#DBBc7F' > 󰃜 </span> {percent}% ",
+      "tooltip": false,
     },
-    "format-icons": {
-      "1": "<span >1</span>",
-      "2": "<span >2</span>",
-      "3": "<span >3</span>",
-      "4": "<span >4</span>",
-      "5": "<span >5</span>"
-    }
-  },
-  "hyprland/window": {
-    "format": "<span  color='#525252'> 󰣆 </span> {class} ",
-    "separate-outputs": false,
-    "icon": false
-  },
-  "hyprland/language": {
-    "format": "<span color='#bae6fd'>  </span> {short} "
-  },
-  "tray": {
-    "icon-size": 15,
-    "spacing": 8
-  },
-  "disk": {
-    "format": "<span color='#e67e80' >  </span> {free} ",
-    "interval": 20
-  },
-  "cpu": {
-    "format": "<span color='#e69875' >  </span> {usage}% ",
-    "tooltip": false,
-    "interval": 1
-  },
-  "memory": {
-    "format": "<span color='#d0a2cc'>  </span> {used:0.2f}G ",
-    "interval": 5
-  },
-  "temperature": {
-    "tooltip": false,
-    "thermal-zone": 2,
-    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-    "critical-threshold": 70,
-    "format": "<span color='#dbbc7f' >  </span> {temperatureC}°C ",
-    "format-critical": "<span color='#dbbc7f' >  </span> {temperatureC}°C "
-  },
-  "backlight": {
-    // "device": "acpi_video1",
-    "format": "<span color='#DBBc7F' > 󰃜 </span> {percent}% ",
-    "tooltip": false
-  },
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "<span color='#A7C080'>  </span> {volume}% ",
-    "format-muted": "<span color='#A7C080'>  </span> {volume}% ",
-    "format-bluetooth": "<span color='#A7C080'> 󰂰 </span> {volume}% ",
-    "format-bluetooth-muted": "<span color='#A7C080'> 󰂲 </span> {volume}% ",
-    "format-source": "{volume}%  ",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "tooltip": false,
-    "max-volume": 130
-  },
-  "battery#bat2": {
-    "bat": "BAT2"
-  },
-  "battery": {
-    "interval": 1,
-    "states": {
-      "good": 99,
-      "warning": 30,
-      "critical": 20
+    "clock": {
+      "format": "   {:%H:%M}",
+      "format-alt": "   {:%a %b %d}",
+      "interval": 1,
+      "tooltip": false,
     },
-    "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
+    "cpu": {
+      "format": "<span color='#e69875' >  </span> {usage}% ",
+      "interval": 1,
+      "tooltip": false,
+    },
+    "disk": {
+      "format": "<span color='#e67e80' >  </span> {free} ",
+      "interval": 20,
+    },
+    "height": 40,
+    "hyprland/language": {
+      "format": "<span color='#bae6fd'>   </span> {short}",
+    },
+    "hyprland/window": {
+      "format": "<span color='#525252'> 󰣆 </span> {class}",
+      "icon": false,
+      "separate-outputs": false,
+    },
+    "hyprland/workspaces": {
+      "active-only": false,
+      "all-outputs": true,
+      "disable-scroll": true,
+      "format": "{icon}",
+      "format-icons": {
+        "active": "",
+        "default": "󰧞",
+        "empty": "󰧞",
+        "urgent": "",
+      },
+      "persistent-workspaces": {
+        "*": 5,
+      },
+      "warp-on-scroll": true,
+    },
+    "layer": "top",
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-top": 0,
+    "memory": {
+      "format": "<span color='#d0a2cc'>  </span> {used:0.2f}G ",
+      "interval": 5,
+    },
+    "modules-center": ["clock"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-right": [
+      "memory",
+      "cpu",
+      "backlight",
+      "pulseaudio",
+      "hyprland/language",
+      "battery",
+      "tray",
     ],
-    "format": "<span color='#83C092' > {icon} </span> {capacity}% ",
-    "format-critical": "<span color='#83C092'> {icon} </span> {capacity}% ",
-    "format-warning": "<span color='#83C092' > {icon} </span> {capacity}% ",
-    "format-full": "<span color='#83C092' > {icon} </span> {capacity}%",
-    "format-charging": "<span color='#83C092' > 󰂅 </span> {capacity}% ",
-    "format-charging-warning": "<span color='#83C092' > 󰢝 </span> {capacity}% ",
-    "format-charging-critical": "<span color='#83C092' > 󰢜 </span> {capacity}% ",
-    "format-plugged": "<span color='#83C092' > 󰂅 </span> {capacity}% ",
-    "format-alt": "<span color='#83C092' > 󱧥 </span> {time} ",
-    "tooltip": false
+    "position": "top",
+    "pulseaudio": {
+      "format": "<span color='#A7C080'>  </span> {volume}% ",
+      "format-bluetooth": "<span color='#A7C080'> 󰂰 </span> {volume}% ",
+      "format-bluetooth-muted": "<span color='#A7C080'> 󰂲 </span> {volume}% ",
+      "format-muted": "<span color='#A7C080'>  </span> {volume}% ",
+      "format-source": "{volume}%  ",
+      "max-volume": 130,
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "tooltip": false,
+    },
+    "spacing": 0,
+    "temperature": {
+      "critical-threshold": 70,
+      "format": "<span color='#dbbc7f' >  </span> {temperatureC}°C ",
+      "format-critical": "<span color='#dbbc7f' >  </span> {temperatureC}°C ",
+      "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+      "thermal-zone": 2,
+      "tooltip": false,
+    },
+    "tray": {
+      "icon-size": 15,
+      "spacing": 8,
+    },
   },
-  "clock": {
-    "format": "<span color='#525252' >  </span> {:%a %b %d %I:%M %p} ",
-    "tooltip": false,
-    "interval": 1
-  }
-}
+]
